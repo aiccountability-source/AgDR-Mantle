@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+=======
+AgDR-Mantle is dual-licensed. You may use this software under the terms of EITHER
+the Creative Commons Zero v1.0 Universal (CC0 1.0) OR the Apache License 2.0.
+
+================================================================================
+OPTION 1: CREATIVE COMMONS ZERO v1.0 UNIVERSAL (CC0 1.0)
+================================================================================
+
+The person who associated a work with this deed has dedicated the work to the
+public domain by waiving all of his or her rights to the work worldwide under
+copyright law, including all related and neighboring rights, to the extent
+allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission.
+
+Full legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+================================================================================
+OPTION 2: APACHE LICENSE, VERSION 2.0
+================================================================================
+
+>>>>>>> c28cf92 (Genesis Release: AgDR-Mantle v1.0.1 - Sub-microsecond GZ Fortification)
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
@@ -175,6 +199,7 @@
 
    END OF TERMS AND CONDITIONS
 
+<<<<<<< HEAD
    APPENDIX: How to apply the Apache License to your work.
 
       To apply the Apache License to your work, attach the following
@@ -187,6 +212,9 @@
       identification within third-party archives.
 
    Copyright [yyyy] [name of copyright owner]
+=======
+   Copyright 2026 Genesis Glass Foundation / Fondation Genese Cristal
+>>>>>>> c28cf92 (Genesis Release: AgDR-Mantle v1.0.1 - Sub-microsecond GZ Fortification)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

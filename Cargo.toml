@@ -1,0 +1,20 @@
+[package]
+name = "agdr-mantle"
+version = "1.0.1"
+edition = "2021"
+description = "AgDR-Mantle: Sovereign post-quantum fortification wrapper for AgDR-Phoenix output"
+license = "CC0-1.0 OR Apache-2.0"
+authors = ["Genesis Glass Foundation"]
+
+[lib]
+crate-type = ["cdylib"]
+name = "agdr_mantle"
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+blake3 = "1.5"
+# AgDR-Phoenix AKI implementation: link via git submodule when integrating
+# aki_phoenix = { path = "../AgDR-Phoenix", package = "agdr-phoenix" }
+
+[build-dependencies]
+pyo3-build-config = "0.22"
