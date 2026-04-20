@@ -1,0 +1,111 @@
+# AgDR Genesis Glass Spine — NemoClaw Blueprint
+# Drop this block into your existing NemoClaw blueprint.yaml
+# Genesis Glass Maxim: mandatory capture, no bypass, no exception.
+# License: CC0 1.0 + Apache 2.0
+
+agdr:
+  capture: mandatory
+  version: v0.2
+  plugin_name: AgDRGenesisSpine
+  human_delta_node: "foi-your-named-human-id-here"
+  merkle_spine: shared
+  policy_version: "town_weave_2026_v1"
+  jurisdiction: "CA_EVIDENCE_ACT"
+  batch_root_interval: 1000
+
+  ppp:
+    provenance: auto
+    place: auto
+    purpose: town_weave_2026_v1
+
+  audit_log:
+    stream_1:
+      name: eternal_witness
+      content: metadata_and_hash
+      retention: permanent
+      format: jsonl
+      path: /var/log/agdr/eternal_witness.jsonl
+    stream_2:
+      name: debug_payload
+      content: full_encrypted
+      retention: 90d
+      format: jsonl.enc
+      path: /var/log/agdr/debug_payload.jsonl.enc
+
+  crypto:
+    hash_algorithm: blake3
+    signature_algorithm: ed25519
+    merkle_type: forward_secret_sparse
+    key_rotation: per_batch_root
+
+  performance:
+    target_latency_us: 4.0
+    max_latency_us: 10.0
+    zero_dropped_records: true
+
+openShell:
+  sandbox:
+    enabled: true
+    isolation: [landlock, seccomp, netns]
+  policy_engine:
+    rules:
+      - name: agdr_capture_required
+        trigger: pre_action
+        action: require_agdr_record
+        on_failure: block_and_alert
+      - name: human_delta_reachable
+        trigger: batch_root_interval
+        action: require_hdn_signature
+        on_failure: pause_and_alert
+  privacy_router:
+    agdr_integration: true
+    strip_pii_before_logging: true
+    agdr_receives_full_trace: true
+
+nemoClaw:
+  inference_profiles:
+    default:
+      model: nemotron-4
+      post_generation_hooks:
+        - hook: agdr_capture
+          blocking: true
+          timeout_us: 10
+  agent_toolkit:
+    agdr_adr_id_passthrough: true
+
+tensorrt_llm:
+  custom_plugins:
+    - name: AgDRGenesisSpine
+      path: agdr_spine.py
+      position: post_decode
+      cuda_stream: model_stream
+      parameters:
+        model_version: nemotron-4
+        policy_version: town_weave_2026_v1
+        human_delta_id: foi-your-named-human-id-here
+
+swarm:
+  max_agents: 250000
+  merkle_spine_type: shared_sparse
+  coherence_target: 99.985
+  throughput_target_rps: 90000
+  human_delta_nodes:
+    topology: hierarchical
+    local_hdn_per_n_agents: 10000
+    city_hdn: "foi-city-fiduciary-001"
+    founding_hdn: "foi-founding-anchor-001"
+
+compliance:
+  eu_ai_act:
+    article_12_logging: satisfied
+    article_14_human_oversight: satisfied
+  pax_silica_coalition:
+    trust_but_verify: satisfied
+  canada_evidence_act:
+    black_box_standard: satisfied
+  cbca_s122:
+    fiduciary_duty: satisfied
+  colorado_ai_act:
+    effective_june_2026: satisfied
+  phipa_pipeda:
+    privacy_compliance: satisfied

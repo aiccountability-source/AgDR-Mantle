@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package agdr.provenance.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message ProvenancePacket {
+  string packet_id = 1;
+  uint64 sequence_number = 2;
+  bytes parent_hash = 3;           // BLAKE3 of previous packet
+  google.protobuf.Timestamp emit_timestamp = 4;
+  bytes provenance_hash = 5;       // origin of decision
+  bytes place_hash = 6;            // execution context
+  bytes purpose_hash = 7;          // alignment manifest
+  bytes decision_hash = 8;         // action fingerprint
+  bytes signature = 9;             // Ed25519 or ECDSA over packet
+  optional bytes fec_parity = 10;  // for UDP dropless recovery
+  map<string, bytes> extensions = 99;
+}
