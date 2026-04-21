@@ -1,6 +1,6 @@
 [project]
 name = "agdr-mantle"
-version = "1.0.1"
+version = "1.0.2"
 description = "AgDR-Mantle: Sovereign post-quantum fortification for AgDR-Phoenix output (ML-DSA-65, Sparse Merkle, Brotli)"
 readme = "README.md"
 license = {text = "CC0-1.0 OR Apache-2.0"}
@@ -20,14 +20,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-post-quantum = ["pqcrypto>=0.4.0"]
-self-learning = []
-sovereign = []
+post-quantum = ["pqcrypto>=0.4.0"]sovereign = []
 
 [project.urls]
 Homepage = "https://accountability.ai"
 Repository = "https://github.com/aiccountability-source/AgDR-Mantle"
-Specification = "https://accountability.ai/agdr"
+Specification = "https://accountability.ai/agdr-spec"
 
 [tool.maturin]
 bindings = "pyo3"
