@@ -3,7 +3,7 @@ name = "agdr-mantle"
 version = "1.0.2"
 description = "AgDR-Mantle: Sovereign post-quantum fortification for AgDR-Phoenix output (ML-DSA-65, Sparse Merkle, Brotli)"
 readme = "README.md"
-license = {text = "CC0-1.0 OR Apache-2.0"}
+license = "Apache-2.0 OR CC0-1.0"
 authors = [{name = "Genesis Glass Foundation", email = "founding@accountability.ai"}]
 requires-python = ">=3.9"
 keywords = ["agdr", "accountability", "post-quantum", "ml-dsa", "fips-204", "evidentiary", "sovereign"]
@@ -20,7 +20,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-post-quantum = ["pqcrypto>=0.4.0"]sovereign = []
+post-quantum = ["pqcrypto>=0.4.0"]
+self-learning = []
+sovereign = []
 
 [project.urls]
 Homepage = "https://accountability.ai"
