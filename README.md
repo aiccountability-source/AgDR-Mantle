@@ -1,4 +1,4 @@
-# AgDR-Mantle v1.0.1
+# AgDR-Mantle v1.0.6
 
 Sovereign post-quantum fortification for AgDR records.
 
