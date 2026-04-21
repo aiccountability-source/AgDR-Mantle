@@ -1,6 +1,6 @@
 [project]
 name = "agdr-mantle"
-version = "1.0.3"
+version = "1.0.4"
 description = "AgDR-Mantle: Sovereign post-quantum fortification for AgDR-Phoenix output (ML-DSA-65, Sparse Merkle, Brotli)"
 readme = "README.md"
 license = "Apache-2.0 OR CC0-1.0"
