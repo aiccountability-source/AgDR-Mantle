@@ -48,7 +48,7 @@ AgDR provides **governance-grade, tamper-evident atomic records** that regulator
 ## Quick Start
 
 ```bash
-pip install blake3
+pip install agdr-mantle
 # AgDR Genesis Glass Spine — NVIDIA Edition v0.2
 
 > **Genesis Glass Maxim:** Quality evidence born transparent at the instant of creation. Captured at inference kernel speed. No better method exists.
