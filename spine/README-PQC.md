@@ -26,7 +26,7 @@ AgDR turns every AI agent decision into an **Eternal Witness**: mathematically a
 - **NemoClaw / OpenShell Ready** — Native event emission for runtime governance
 - **Genesis Bundles** — Self-verifying `.agdr.tar.gz` archives (AIVS-compatible)
 - **Privacy by Design** — Pseudonymization + zk-proof hooks for reasoning traces
-- **Post-Quantum Ready** — Hybrid Ed25519 + SLH-DSA migration path
+- **Post-Quantum Ready** — Hybrid Ed25519 + ML-DSA migration path
 - **Commonwealth Transparency Root** — Optional hourly national / realm-level public anchors
 
 ---
@@ -65,14 +65,12 @@ pip install blake3
 
 ## Repository Structure
 
-agdr-genesis-spine/
-- README.md
+agdr-Mantle-Spine/
+- README-PQC.md
 - agdr_spine.py — Main Python plugin (lightspeed entry point)
 - nemo_claw_blueprint.yaml — Drop-in NemoClaw policy
 - verification_swarm.py — Proof at 250k-unit swarm scale
-- build_and_test.sh — One-click build + test
 - LICENSE — CC0 1.0 + Apache 2.0
-- docs/town_vision.md — 100k-agent town vision
 
 ## License
 Dual-licensed: CC0 1.0 Universal + Apache 2.0
