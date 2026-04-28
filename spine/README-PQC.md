@@ -1,8 +1,8 @@
-# AgDR Sovereign Commonwealth Eternal Witness
+# AgDR-Mantle Massive Swarm Mobilization - Sovereign Commonwealth Eternal Witness
 
-**v1.0** — A Cryptographic Governance Standard for Atomic AI Decision Records
+ — A Cryptographic Governance Standard for Atomic AI Decision Records
 
-An open, tamper-evident, self-verifying framework for capturing **Atomic Kernel Inferences (AKI)** in high-stakes domains — with special focus on Canadian healthcare.
+An open, tamper-evident, self-verifying framework for capturing **Atomic Kernel Inferences (AKI)** in high-stakes domains, with special focus on Canadian healthcare.
 
 Built to serve **Beauty, Truth, and Wisdom** under the spirit of the Commonwealth Charter and in honour of the King of the Commonwealth.
 
