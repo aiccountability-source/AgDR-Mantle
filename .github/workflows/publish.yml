@@ -51,7 +51,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           command: upload
-          args: --repository testpypi --non-interactive wheels/*.whl
+          args: "--repository testpypi --non-interactive wheels/*.whl"
         env:
           MATURIN_PYPI_TOKEN: ${{ secrets.TEST_PYPI_API_TOKEN }}
 
@@ -70,6 +70,6 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           command: upload
-          args: --repository pypi --non-interactive wheels/*.whl
+          args: "--repository pypi --non-interactive wheels/*.whl"
         env:
           MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
