@@ -1,10 +1,11 @@
 publish:
     name: Publish to PyPI
     needs: build-wheels
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     if: github.event_name == 'release'
     steps:
-      - uses: actions/checkout@v4  # Need the code to build the sdist
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -12,12 +13,13 @@ publish:
           python-version: "3.11"
 
       - name: Install build tool
-        run: python -m pip install build
+        run: pip install build
 
       - name: Build source distribution
         run: python -m build --sdist
 
-      - uses: actions/download-artifact@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
         with:
           pattern: wheels-*
           merge-multiple: true
