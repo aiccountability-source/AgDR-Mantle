@@ -1,52 +1,22 @@
-name: Build and Publish multi-arch wheels
-
-on:
-  release:
-    types: [published]
-  workflow_dispatch:
-
-jobs:
-  build-wheels:
-    name: Build wheels for ${{ matrix.target.os }}
-    runs-on: ${{ matrix.target.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        target:
-          - { os: ubuntu-latest,   target: x86_64 }
-          - { os: ubuntu-latest,   target: aarch64 }
-          - { os: ubuntu-latest,   target: armv7 }
-          - { os: windows-latest,  target: x64 }
-          - { os: windows-latest,  target: win-arm64 }
-          - { os: macos-13,        target: x86_64 }
-          - { os: macos-14,        target: aarch64 }
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up QEMU (for ARM cross-compilation on Linux)
-        if: runner.os == 'Linux' && (matrix.target == 'aarch64' || matrix.target == 'armv7')
-        uses: docker/setup-qemu-action@v3
-
-      - name: Build wheels
-        uses: PyO3/maturin-action@v1
-        with:
-          target: ${{ matrix.target }}
-          manylinux: auto
-          args: --release --out dist --interpreter python3.9 python3.10 python3.11 python3.12 python3.13 python3.14
-
-      - name: Upload wheels
-        uses: actions/upload-artifact@v4
-        with:
-          name: wheels-${{ runner.os }}-${{ matrix.target }}
-          path: dist
-
-  publish:
+publish:
     name: Publish to PyPI
     needs: build-wheels
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
     steps:
+      - uses: actions/checkout@v4  # Need the code to build the sdist
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build tool
+        run: python -m pip install build
+
+      - name: Build source distribution
+        run: python -m build --sdist
+
       - uses: actions/download-artifact@v4
         with:
           pattern: wheels-*
