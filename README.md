@@ -1,4 +1,4 @@
-# AgDR-Mantle v1.1.0
+# AgDR-Mantle v1.1.1
 
 Sovereign post-quantum fortification for AgDR records.
 
@@ -11,9 +11,9 @@ tree witness, and Brotli compression.
 You do not need to change your existing AgDR-Phoenix setup. Mantle runs
 after the fact. The hot path stays at 0.62 microseconds.
 
-## Changes from v1.0.8 to v1.1.0
+## Changes from v1.0.8 to v1.1.1
 
-v1.1.0 (May 2026): Multi-architecture wheels and expanded Python support.
+v1.1.1 (May 2026): Multi-architecture wheels and expanded Python support.
 
 - Added: Multi-architecture pre-built wheels for Linux (x86_64, aarch64), Windows (x64), and macOS (Intel, Apple Silicon)
 - Added: Official Python 3.13 and 3.14 support
