@@ -38,32 +38,33 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment: testpypi
+    permissions:
+      id-token: write
     steps:
       - uses: actions/download-artifact@v4
         with:
           pattern: wheels-*
           merge-multiple: true
           path: wheels
-      - name: Install maturin
-        run: pip install maturin
       - name: Publish to TestPyPI
-        run: maturin upload --repository testpypi --non-interactive wheels/*.whl
-        env:
-          MATURIN_PYPI_TOKEN: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          packages-dir: wheels/
 
   publish-pypi:
     needs: publish-testpypi
     runs-on: ubuntu-latest
     environment: pypi
+    permissions:
+      id-token: write
     steps:
       - uses: actions/download-artifact@v4
         with:
           pattern: wheels-*
           merge-multiple: true
           path: wheels
-      - name: Install maturin
-        run: pip install maturin
       - name: Publish to PyPI
-        run: maturin upload --repository pypi --non-interactive wheels/*.whl
-        env:
-          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: wheels/
