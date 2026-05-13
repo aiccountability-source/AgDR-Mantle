@@ -26,8 +26,9 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.target }}
-          args: --release --compatibility off
+          args: --release                    # ← removed --compatibility off
           sccache: "true"
+          manylinux: auto                    # ← added: auto-detect manylinux
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:

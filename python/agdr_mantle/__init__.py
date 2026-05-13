@@ -1,5 +1,5 @@
 """
-AgDR-Mantle v1.0.1
+AgDR-Mantle v1.1.1
 
 Sovereign post-quantum fortification for AgDR records.
 
@@ -15,7 +15,7 @@ from .mantle_engine import AgDRMantle
 from .pq_fortification import PQFortification
 from .sovereign_witness import CommonwealthEternalWitness
 
-__version__ = "1.0.1"
+__version__ = "1.1.1"
 __all__ = [
     "AgDRMantle",
     "PQFortification",
