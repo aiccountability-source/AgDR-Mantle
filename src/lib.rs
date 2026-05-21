@@ -1,18 +1,25 @@
-// AgDR-Mantle Rust core extension.
-//
-// In the production build this module links to AgDR-Phoenix (the AKI
-// Implementation) and re-exports AKIEngine to Python. This placeholder
-// returns deterministic test bytes until Phoenix linkage is wired.
+#![cfg_attr(docsrs, feature(doc_cfg))]
+//! AgDR-Mantle: Sovereign post-quantum fortification for AgDR-Phoenix output.
+//!
+//! ML-DSA-65, Sparse Merkle Trees, Brotli compression.
+//! Developed by the Genesis Glass Foundation.
 
+#[cfg(feature = "python")]
 use pyo3::prelude::*;
+#[cfg(feature = "python")]
 use pyo3::types::PyAny;
+#[cfg(feature = "python")]
 use pyo3::Bound;
 
+#[cfg(feature = "python")]
+#[cfg_attr(docsrs, doc(cfg(feature = "python")))]
 #[pyclass]
 struct AKIEngine {
     fo_i: String,
 }
 
+#[cfg(feature = "python")]
+#[cfg_attr(docsrs, doc(cfg(feature = "python")))]
 #[pymethods]
 impl AKIEngine {
     #[new]
@@ -31,6 +38,8 @@ impl AKIEngine {
     }
 }
 
+#[cfg(feature = "python")]
+#[cfg_attr(docsrs, doc(cfg(feature = "python")))]
 #[pymodule]
 fn _core(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<AKIEngine>()?;
