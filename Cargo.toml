@@ -1,6 +1,6 @@
 [package]
 name = "agdr-mantle"
-version = "1.1.2"
+version = "1.1.4"
 edition = "2021"
 description = "AgDR-Mantle: Sovereign post-quantum fortification wrapper for AgDR-Phoenix output"
 license = "CC0-1.0 OR Apache-2.0"
