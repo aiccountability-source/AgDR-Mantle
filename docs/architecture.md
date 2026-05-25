@@ -53,7 +53,7 @@ Placing it downstream preserves the AKI property. The Phoenix implementation sea
 
 ## Why the Fortification Tier Matters Now
 
-The AKI Core itself is quantum-resistant conceptually: it is a record, not a secret. What needs quantum-resistance is the signature that authenticates the record. At the Core level that signature is defined abstractly. At the Implementation level (Phoenix v1.8) it is currently Ed25519 (classical), with ML-DSA-65 scheduled as a future Phoenix upgrade. At the Fortification level (Mantle v1.0.1) ML-DSA-65 is available today as an optional envelope.
+The AKI Core itself is quantum-resistant conceptually: it is a record, not a secret. What needs quantum-resistance is the signature that authenticates the record. At the Core level that signature is defined abstractly. At the Implementation level (Phoenix v1.8) it is currently Ed25519 (classical), with ML-DSA-65 considered as a future Phoenix upgrade. At the Fortification level (Mantle v1.1.5) ML-DSA-65 is available today as an optional envelope.
 
 This lets adopters opt into quantum-resistant evidentiary signatures immediately without waiting for the Phoenix kernel upgrade cycle. The Foundation's layered architecture is designed exactly for this kind of staged cryptographic migration.
 
