@@ -13,7 +13,7 @@ Built to serve **Beauty, Truth, and Wisdom** under the spirit of the Commonwealt
 > Use it. Don’t use it.  
 > Or show a strictly superior method that delivers the same atomic, tamper-evident, reasoning-complete record faster or cleaner.
 
-AgDR turns every AI agent decision into an **Eternal Witness**: mathematically and legally above reproach.
+AgDR turns every AI agentic decision into an **Eternal Witness**: mathematically and legally above reproach.
 
 ---
 
