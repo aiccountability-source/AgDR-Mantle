@@ -3,7 +3,7 @@
 **Sovereign post-quantum fortification for AgDR records.**
 
 ## What it does
-AgDR-Mantle adds an optional **post-quantum security layer** to AgDR-Phoenix [2]. It wraps each sealed record with an **ML-DSA-65 signature** (NIST FIPS 204), a **sparse Merkle tree witness**, and **Brotli compression** [2].
+AgDR-Mantle adds an optional **post-quantum security layer** to AgDR-Phoenix [2]. It wraps each sealed record with an **ML-DSA-65 signature** (NIST FIPS 204), **Self-Learning/Evolving** a **sparse Merkle tree witness**, and **Brotli compression** [2].
 
 You do not need to change your existing AgDR-Phoenix setup; Mantle runs after the fact [2]. The "hot path" for **Atomic Kernel Inferences** (AKI) remains at **0.62 microseconds** [2, 4].
 
@@ -11,9 +11,9 @@ You do not need to change your existing AgDR-Phoenix setup; Mantle runs after th
 **v1.1.5 (May 2026):** Multi-architecture infrastructure synchronization [1, 2].
 
 *   **Updated:** Standardized multi-architecture pre-built wheels for **Linux** (x86_64, aarch64), **Windows** (x64), and **macOS** (Intel, Apple Silicon) [1, 5, 6].
-*   **Added:** Official support for **Python 3.13 and 3.14** [5].
-*   **Refinement:** Synchronized versioning across `Cargo.toml`, `pyproject.toml`, and the `bump-version.ps1` automation suite [1].
-*   **Maintenance:** No changes were made to the Rust core or Python bindings—these updates focus on distribution and infrastructure stability [5].
+*   **Added:** Official support for **Python 3.13 and 3.14**.
+*   **Refinement:** Synchronized versioning across `Cargo.toml`, `pyproject.toml`, and the `bump-version.ps1` automation suite.
+*   **Maintenance:** No changes were made to the Rust core or Python bindings—these updates focus on distribution and infrastructure stability.
 
 ## Install
 ```bash
@@ -116,4 +116,4 @@ works for you.
 
 AgDR-Mantle is maintained by the Genesis Glass Foundation, a federally
 incorporated Canadian not-for-profit. The standard is open. No vendor
-lock-in. No royalties.
+lock-in. No royalties. Chartered Donee: Council of Canadians with Disabilities (CCD) https://www.ccdonline.ca/en/
