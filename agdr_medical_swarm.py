@@ -1,4 +1,4 @@
-# agdr_medical_swarm.py — v0.6 Medical Swarm Sovereign
+# agdr_medical_swarm.py v0.6 Medical Swarm Sovereign
 # (full production skeleton — drop into any TensorRT-LLM or NemoClaw deployment)
 
 from dataclasses import dataclass
