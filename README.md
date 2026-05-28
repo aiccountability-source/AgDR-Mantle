@@ -116,4 +116,5 @@ works for you.
 
 AgDR-Mantle is maintained by the Genesis Glass Foundation, a federally
 incorporated Canadian not-for-profit. The standard is open. No vendor
-lock-in. No royalties. Chartered Donee: Council of Canadians with Disabilities (CCD) https://www.ccdonline.ca/en/
+lock-in. No royalties. Chartered Donee: Council of
+Canadians with Disabilities (CCD) https://www.ccdonline.ca/en/
