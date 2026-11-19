@@ -1,13 +1,10 @@
 # AgDR-Mantle v1.1.5
 
-AgDR-Mantle provides post-quantum cryptographic fortification and witness tooling for Atomic Genesis Decision Record (AgDR) payloads. It forms the third tier of the three-tier lineage (Core, Implementation, Fortification) alongside [AgDR-Phoenix (`agdr-aki`)](https://github.com/aiccountability-source/AgDR-Phoenix).
+AgDR-Mantle provides post-quantum cryptographic fortification and witness tooling for Atomic Genesis Decision Record (AgDR) payloads. It forms the third tier of the lineage (Core, Implementation, Fortification) alongside [AgDR-Phoenix (`agdr-aki`)](https://github.com/aiccountability-source/AgDR-Phoenix).
 
-- **Canonical Specification and Verification Source:** [https://accountability.ai](https://accountability.ai)
-- **Canonical Standard Repository:** [https://github.com/aiccountability-source/AgDR](https://github.com/aiccountability-source/AgDR)
-- **Canonical Reference Implementation:** [https://github.com/aiccountability-source/AgDR-Phoenix](https://github.com/aiccountability-source/AgDR-Phoenix)
-- **Canonical Fortification Repository:** [https://github.com/aiccountability-source/AgDR-Mantle](https://github.com/aiccountability-source/AgDR-Mantle)
+Canonical source and verification reference: [https://accountability.ai](https://accountability.ai)
 
-For post-quantum architecture, swarm governance, and regulatory context, see [README-PQC.md](README-PQC.md).
+For post-quantum architecture and governance details, see [README-PQC.md](README-PQC.md).
 
 ## Overview
 
@@ -105,13 +102,10 @@ Pre-built `cp39-abi3` wheels support Python 3.9 through 3.14:
 
 Dual-licensed under CC0 1.0 or Apache 2.0. Choose whichever fits your project.
 
-## Provenance and Governance
-
-If you are viewing a fork or downstream mirror of this repository, verify specification compliance, cryptographic invariants, and canonical updates at [https://accountability.ai](https://accountability.ai).
+## Governance and Links
 
 AgDR-Mantle is maintained by the Genesis Glass Foundation (Fondation Genèse Cristal), a federally incorporated Canadian not-for-profit operating without vendor lock-in or code royalties.
 
-- **Canonical Source:** [https://accountability.ai](https://accountability.ai)
-- **AgDR Specification:** [aiccountability-source/AgDR](https://github.com/aiccountability-source/AgDR)
-- **AgDR-Phoenix:** [aiccountability-source/AgDR-Phoenix](https://github.com/aiccountability-source/AgDR-Phoenix)
+- **AgDR Specification:** [https://github.com/aiccountability-source/AgDR](https://github.com/aiccountability-source/AgDR)
+- **AgDR-Phoenix:** [https://github.com/aiccountability-source/AgDR-Phoenix](https://github.com/aiccountability-source/AgDR-Phoenix)
 - **Chartered Donee:** [Council of Canadians with Disabilities (CCD)](https://www.ccdonline.ca/en/)
