@@ -1,120 +1,117 @@
 # AgDR-Mantle v1.1.5
 
-**Sovereign post-quantum fortification for AgDR records.**
+AgDR-Mantle provides post-quantum cryptographic fortification and witness tooling for Atomic Genesis Decision Record (AgDR) payloads. It forms the third tier of the three-tier lineage (Core, Implementation, Fortification) alongside [AgDR-Phoenix (`agdr-aki`)](https://github.com/aiccountability-source/AgDR-Phoenix).
 
-## What it does
-AgDR-Mantle adds an optional **post-quantum security layer** to AgDR-Phoenix [2]. It wraps each sealed record with an **ML-DSA-65 signature** (NIST FIPS 204), **Self-Learning/Evolving** a **sparse Merkle tree witness**, and **Brotli compression** [2].
+- **Canonical Specification and Verification Source:** [https://accountability.ai](https://accountability.ai)
+- **Canonical Standard Repository:** [https://github.com/aiccountability-source/AgDR](https://github.com/aiccountability-source/AgDR)
+- **Canonical Reference Implementation:** [https://github.com/aiccountability-source/AgDR-Phoenix](https://github.com/aiccountability-source/AgDR-Phoenix)
+- **Canonical Fortification Repository:** [https://github.com/aiccountability-source/AgDR-Mantle](https://github.com/aiccountability-source/AgDR-Mantle)
 
-You do not need to change your existing AgDR-Phoenix setup; Mantle runs after the fact [2]. The "hot path" for **Atomic Kernel Inferences** (AKI) remains at **0.62 microseconds** [2, 4].
+For post-quantum architecture, swarm governance, and regulatory context, see [README-PQC.md](README-PQC.md).
 
-## Changes from v1.1.1 to v1.1.5
-**v1.1.5 (May 2026):** Multi-architecture infrastructure synchronization [1, 2].
+## Overview
 
-*   **Updated:** Standardized multi-architecture pre-built wheels for **Linux** (x86_64, aarch64), **Windows** (x64), and **macOS** (Intel, Apple Silicon) [1, 5, 6].
-*   **Added:** Official support for **Python 3.13 and 3.14**.
-*   **Refinement:** Synchronized versioning across `Cargo.toml`, `pyproject.toml`, and the `bump-version.ps1` automation suite.
-*   **Maintenance:** No changes were made to the Rust core or Python bindings—these updates focus on distribution and infrastructure stability.
+AgDR-Mantle adds an optional post-quantum security layer on top of sealed AgDR-Phoenix records:
 
-## Install
+- **Signatures:** Optional ML-DSA-65 (NIST FIPS 204) signing and verification.
+- **Witnesses:** Sparse Merkle tree witness handling and Brotli compression.
+- **Hot-path isolation:** Runs after record sealing, leaving the AgDR-Phoenix capture hot path at 0.62 microseconds.
+
+## Installation
+
+### Python (`pip`)
+
 ```bash
 pip install agdr-mantle
-With post-quantum enabled: pip install agdr-mantle[post-quantum]
-With all features: pip install agdr-mantle[post-quantum,self-learning,sovereign]
-Quick example
-from agdr_mantle import AgDRMantle
+```
 
-engine = AgDRMantle(fo_i="Accountability (Toronto)")
-ppp = {"provenance": "...", "place": "Toronto", "purpose": "Test"}
-record = engine.seal(ppp)
-Performance
-These numbers come from a build container, not production hardware
-.
-ML-DSA-65 key generation: 0.3 ms
-Sign and wrap: 1 ms
-Verify: 0.2 ms
-Platform Support
-Pre-built wheels available for:
-Linux: x86_64, aarch64 (ARM64)
-Windows: x64
-macOS: x86_64 (Intel), aarch64 (Apple Silicon)
-Python 3.9 through 3.14 are supported via the abi3 stable binary interface
-.
-License
-You can use this under either CC0 1.0 or Apache 2.0. Pick the one that works for you
-.
-About
-AgDR-Mantle is maintained by the Genesis Glass Foundation, a federally incorporated Canadian not-for-profit
-. The standard is open, with no vendor lock-in and no royalties
-. It represents a three-tier lineage (Core, Implementation, Fortification) published for sovereign data integrity
+Optional feature sets:
 
-# AgDR-Mantle v1.1.1
-
-Sovereign post-quantum fortification for AgDR records.
-
-## What it does
-
-AgDR-Mantle adds an optional post-quantum security layer to AgDR-Phoenix.
-It wraps each sealed record with an ML-DSA-65 signature, a sparse Merkle
-tree witness, and Brotli compression.
-
-You do not need to change your existing AgDR-Phoenix setup. Mantle runs
-after the fact. The hot path stays at 0.62 microseconds.
-
-## Changes from v1.0.8 to v1.1.1
-
-v1.1.1 (May 2026): Multi-architecture wheels and expanded Python support.
-
-- Added: Multi-architecture pre-built wheels for Linux (x86_64, aarch64), Windows (x64), and macOS (Intel, Apple Silicon)
-- Added: Official Python 3.13 and 3.14 support
-- Added: Automated GitHub Actions CI/CD for wheel building and publishing
-- Changed: PyO3 ABI target updated to abi3-py39 for forward Python compatibility
-- Changed: requires-python expanded from >=3.9,<3.13 to >=3.9,<3.15
-
-Note: No Rust core or Python binding changes--purely distribution and infrastructure improvements.
-
-## Install
-
-pip install agdr-mantle
-
-With post-quantum enabled:
+```bash
 pip install agdr-mantle[post-quantum]
-
-With all features:
 pip install agdr-mantle[post-quantum,self-learning,sovereign]
+```
 
-## Quick example
+- `post-quantum`: Enables ML-DSA-65 signing and verification support.
+- `self-learning`: Enables sparse Merkle witness update support.
+- `sovereign`: Enables sovereign harness, blueprint, and telemetry helpers.
 
+### Rust (`cargo`)
+
+```bash
+cargo add agdr-mantle
+```
+
+## Quick Example
+
+```python
 from agdr_mantle import AgDRMantle
 
 engine = AgDRMantle(fo_i="Accountability (Toronto)")
 ppp = {"provenance": "...", "place": "Toronto", "purpose": "Test"}
 record = engine.seal(ppp)
+```
 
-## Performance
+## Harnesses, Wrappers, and Schemas
 
-These numbers come from a build container, not production hardware.
+- `agdr_sovereign_v1_0_fixed.py`: Standalone reference harness containing `CommonwealthEternalWitness` (`capture_medical`, `nemoclaw_mode`), a BLAKE3 256-bit `SparseMerkleTree`, and `SparseMerkleCUDA` (a drop-in wrapper interface intended for a future `pybind11` and CUDA implementation).
+- `agdr_medical_swarm.py`: Reference multi-agent clinical telemetry and coordination harness.
+- `agdr_spine.py`: Sovereign governance orchestration harness.
+- `nemo_claw_blueprint.yaml`: Agentic deployment blueprint configuration.
+- `src_provenance-packet.proto`: Protocol Buffers schema for provenance packets.
 
-ML-DSA-65 key generation: 0.3 ms
-Sign and wrap: 1 ms
-Verify: 0.2 ms
+## Repository Layout
+
+- `src/`: Rust crate source (`Cargo.toml`)
+- `python/agdr_mantle/`: Python package and `abi3` bindings (`pyproject.toml`)
+- `agdr_sovereign_v1_0_fixed.py`: Sovereign Commonwealth Eternal Witness and `SparseMerkleCUDA` wrapper
+- `agdr_medical_swarm.py`: Medical swarm multi-agent telemetry harness
+- `agdr_spine.py`: Sovereign governance spine orchestration
+- `nemo_claw_blueprint.yaml`: NemoClaw agentic deployment blueprint
+- `src_provenance-packet.proto`: Protocol Buffers schema for provenance packets
+- `README-PQC.md`: Post-quantum cryptography and governance notes
+- `bump-version.ps1`: Version synchronization script
+- `tests/`: Test suite
+
+## Benchmarks
+
+These numbers come from a build container rather than production hardware. Actual timings vary by CPU or GPU architecture, payload size, active feature flags, and native versus wrapper execution paths:
+
+- **ML-DSA-65 key generation:** 0.3 ms
+- **Sign and wrap:** 1 ms
+- **Verify:** 0.2 ms
 
 ## Platform Support
 
-Pre-built wheels available for:
-- Linux: x86_64, aarch64 (ARM64)
-- Windows: x64
-- macOS: x86_64 (Intel), aarch64 (Apple Silicon)
+Pre-built `cp39-abi3` wheels support Python 3.9 through 3.14:
 
-Python 3.9 through 3.14 supported via abi3.
+- **Linux (PyPI):** `x86_64`, `aarch64`
+- **ARM Linux (piwheels):** `linux_armv6l`, `linux_armv7l` (`piwheels.org/project/agdr-mantle`)
+- **Windows (PyPI):** `x64`
+- **macOS (PyPI):** `x86_64`, `aarch64`
+
+## Changelog
+
+### v1.1.5 (May 2026)
+- Synchronized release metadata across `Cargo.toml`, `pyproject.toml`, and `bump-version.ps1` with OIDC trusted publishing.
+- Standardized multi-architecture pre-built wheels across PyPI and piwheels for Python 3.9 through 3.14.
+- Documented root reference harnesses, wrappers, and schemas (`agdr_sovereign_v1_0_fixed.py`, `agdr_medical_swarm.py`, `agdr_spine.py`, `nemo_claw_blueprint.yaml`, `src_provenance-packet.proto`) alongside `README-PQC.md`.
+
+### v1.1.1 (May 2026)
+- Added multi-architecture pre-built wheels for Linux (`x86_64`, `aarch64`), Windows (`x64`), and macOS (`x86_64`, `aarch64`).
+- Added official Python 3.13 and 3.14 support (`requires-python` `>=3.9,<3.15`) using `abi3-py39` and automated GitHub Actions wheel workflows.
 
 ## License
 
-You can use this under either CC0 1.0 or Apache 2.0. Pick the one that
-works for you.
+Dual-licensed under CC0 1.0 or Apache 2.0. Choose whichever fits your project.
 
-## About
+## Provenance and Governance
 
-AgDR-Mantle is maintained by the Genesis Glass Foundation, a federally
-incorporated Canadian not-for-profit. The standard is open. No vendor
-lock-in. No royalties. Chartered Donee: Council of
-Canadians with Disabilities (CCD) https://www.ccdonline.ca/en/
+If you are viewing a fork or downstream mirror of this repository, verify specification compliance, cryptographic invariants, and canonical updates at [https://accountability.ai](https://accountability.ai).
+
+AgDR-Mantle is maintained by the Genesis Glass Foundation (Fondation Genèse Cristal), a federally incorporated Canadian not-for-profit operating without vendor lock-in or code royalties.
+
+- **Canonical Source:** [https://accountability.ai](https://accountability.ai)
+- **AgDR Specification:** [aiccountability-source/AgDR](https://github.com/aiccountability-source/AgDR)
+- **AgDR-Phoenix:** [aiccountability-source/AgDR-Phoenix](https://github.com/aiccountability-source/AgDR-Phoenix)
+- **Chartered Donee:** [Council of Canadians with Disabilities (CCD)](https://www.ccdonline.ca/en/)
